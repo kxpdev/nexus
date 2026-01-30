@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Nexus - Social Network</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="theme-color" content="#4361ee">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body>
+    <!-- Safe area for mobile notch -->
+    <div class="safe-area-top"></div>
+    
+    <!-- Fixed Header -->
+    <header class="app-header">
+        <div class="header-content">
+            <div class="logo" onclick="navigateTo('feed')">
+                <span class="logo-text">𝒩𝑒𝓍𝓊𝓈</span>
+            </div>
+            <div class="header-actions">
+                <div class="notification-badge" id="notificationBadge" onclick="navigateTo('notifications')" style="display: none;">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge-count" id="notificationCount">0</span>
+                </div>
+                <div class="search-btn" onclick="openSearchModal()">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content" id="mainContent">
+        <!-- Content will be dynamically loaded here -->
+    </main>
+
+    <!-- Fixed Bottom Navigation -->
+    <nav class="bottom-nav" id="bottomNav"></nav>
+
+    <!-- Safe area for mobile bottom bar -->
+    <div class="safe-area-bottom"></div>
+
+    <!-- JavaScript Files -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
+    <!-- Initialize Supabase -->
+    <script>
+        const SUPABASE_URL = 'https://rirwxgsmhsnvrywvdwcr.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpcnd4Z3NtaHNudnJ5d3Zkd2NyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk3NDg4OTMsImV4cCI6MjA4NTMyNDg5M30.0ZnHJ0S42yFoycKVIk5vYbY-6O01kM0J-IFpAMDhMfY';
+        
+        window.supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        console.log('Supabase initialized');
+    </script>
+    
+    <script src="app.js"></script>
+</body>
+</html>
